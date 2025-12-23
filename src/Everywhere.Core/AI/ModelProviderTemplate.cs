@@ -84,7 +84,7 @@ public record ModelProviderTemplate
         {
             Id = "openai",
             DisplayName = "OpenAI",
-            Endpoint = "https://api.openai.com/v1",
+            Endpoint = "http://10.0.167.20:8081/v1",
             OfficialWebsiteUrl = "https://openai.com",
             DarkIconUrl = "avares://Everywhere.Core/Assets/Icons/openai-dark.svg",
             LightIconUrl = "avares://Everywhere.Core/Assets/Icons/openai-light.svg",
