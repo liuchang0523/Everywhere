@@ -115,21 +115,21 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pyotp
-        python -u tools/sign_windows/sign.py ./publish
+        # python -u tools/sign_windows/sign.py ./publish
 
-    - name: Install Inno Setup
-      shell: pwsh
-      run: |
-        choco install innosetup
+    # - name: Install Inno Setup
+      # shell: pwsh
+      # run: |
+        # choco install innosetup
 
-    - name: Compile .ISS to .EXE Installer
-      shell: pwsh
-      run: |
-        & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "tools/installer.iss" /O+
-        if ($LASTEXITCODE -ne 0) {
-          Write-Error "Inno Setup compilation failed with exit code $LASTEXITCODE"
-          exit $LASTEXITCODE
-        }
+    # - name: Compile .ISS to .EXE Installer
+      # shell: pwsh
+      # run: |
+        # & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "tools/installer.iss" /O+
+        # if ($LASTEXITCODE -ne 0) {
+          # Write-Error "Inno Setup compilation failed with exit code $LASTEXITCODE"
+          # exit $LASTEXITCODE
+        # }
 
     - name: Create release zip
       shell: pwsh
@@ -146,7 +146,7 @@ jobs:
         prerelease: false
         files: |
           ./Everywhere-Windows-x64-v${{env.VERSION}}.zip
-          ./Everywhere-Windows-x64-Setup-v${{env.VERSION}}.exe
+          # ./Everywhere-Windows-x64-Setup-v${{env.VERSION}}.exe
 
   build-mac:
     runs-on: macos-latest
